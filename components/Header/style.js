@@ -6,7 +6,7 @@ const style = StyleSheet.create({
     fontFamily: 'Inter',
     fontSize: scaleFontSize(24),
     lineHeight: scaleFontSize(29),
-    fontWeight: '600',
+    fontWeight: '900',
   },
   title2: {
     fontFamily: 'Inter',
