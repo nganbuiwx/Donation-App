@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, SafeAreaView, Text, Image} from 'react-native';
+import {View, SafeAreaView, Image} from 'react-native';
 
 import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
@@ -9,7 +9,6 @@ import Search from '../../components/Search/Search';
 
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import SingleDonationItem from '../../components/SingleDonationItem/SingleDonationItem';
 import {horizontalScale} from '../../assets/styles/scaling';
 import {ScrollView} from 'react-native-gesture-handler';
