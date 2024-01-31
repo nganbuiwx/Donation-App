@@ -11,6 +11,7 @@ const style = StyleSheet.create({
     height: verticalScale(55),
     justifyContent: 'center',
     borderRadius: horizontalScale(50),
+    marginTop: verticalScale(20),
   },
   title: {
     fontFamily: 'Inter',
