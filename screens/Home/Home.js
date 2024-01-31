@@ -39,7 +39,7 @@ const Home = ({navigation}) => {
           {/* Category */}
           <View style={style.categoryContainer}>
             <Header title={'Select Category'} type={2} />
-            <ScrollView horizontal>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               <View style={style.categoryContent}>
                 <Tab title={'Highlight'} />
                 <Tab title={'Lifestyle'} isInactive={true} />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, SafeAreaView, TouchableOpacity} from 'react-native';
 import style from './style';
 import Header from '../../components/Header/Header';
@@ -10,6 +10,11 @@ import {scaleFontSize, verticalScale} from '../../assets/styles/scaling';
 import {Routes} from '../../navigation/Routes';
 
 const CardPayment = ({navigation}) => {
+  const [name, setName] = useState('');
+  const [cardNumber, setCardNumber] = useState('');
+  const [expiredDate, setExpiredDate] = useState('');
+  const [CVV, setCVV] = useState('');
+
   return (
     <SafeAreaView>
       <View>
@@ -32,6 +37,8 @@ const CardPayment = ({navigation}) => {
           title={'Card Holder Name'}
           isSecureTextEntry={false}
           keyboardType={'default'}
+          value={name}
+          onChangeText={value => setName(value)}
         />
 
         <Input
@@ -39,6 +46,8 @@ const CardPayment = ({navigation}) => {
           isSecureTextEntry={false}
           keyboardType={'numeric'}
           placeHolder={'e.g 2524 1950 5100'}
+          value={cardNumber}
+          onChangeText={value => setCardNumber(value)}
         />
 
         <View
@@ -52,18 +61,23 @@ const CardPayment = ({navigation}) => {
             keyboardType={'numeric'}
             placeHolder={'ex. 06/24'}
             style={{padding: '50px'}}
+            value={expiredDate}
+            onChangeText={value => setExpiredDate(value)}
           />
           <Input
             title={'CVV'}
             isSecureTextEntry={false}
             keyboardType={'numeric'}
             placeHolder={'ex. 599'}
+            value={CVV}
+            onChangeText={value => setCVV(value)}
           />
         </View>
         <View style={{marginTop: verticalScale(219)}}>
           <Button
             title={'Confirm Payment'}
             onPress={() => {
+              // console.log(CVV, name, cardNumber, expiredDate);
               navigation.navigate(Routes.Home);
             }}
           />

@@ -13,9 +13,9 @@ const Input = props => {
         value={textValue}
         onChangeText={value => {
           setTextValue(value);
+          props.onChangeText(value);
         }}
         secureTextEntry={props.isSecureTextEntry}
-        autoFocus={true}
         keyboardType={props.keyboardType}
         placeholder={props.placeHolder}
       />
@@ -28,6 +28,7 @@ Input.default = {
   isSecureTextEntry: false,
   keyboardType: 'default',
   placeHolder: '',
+  onChangeText: () => {},
 };
 
 Input.propTypes = {
@@ -35,6 +36,7 @@ Input.propTypes = {
   isSecureTextEntry: PropTypes.bool,
   keyboardType: PropTypes.string.isRequired,
   placeHolder: PropTypes.string,
+  onChangeText: PropTypes.func,
 };
 
 export default Input;
