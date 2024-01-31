@@ -17,6 +17,7 @@ const Input = props => {
         secureTextEntry={props.isSecureTextEntry}
         autoFocus={true}
         keyboardType={props.keyboardType}
+        placeholder={props.placeHolder}
       />
     </View>
   );
@@ -26,12 +27,14 @@ Input.default = {
   title: '',
   isSecureTextEntry: false,
   keyboardType: 'default',
+  placeHolder: '',
 };
 
 Input.propTypes = {
   title: PropTypes.string.isRequired,
   isSecureTextEntry: PropTypes.bool,
   keyboardType: PropTypes.string.isRequired,
+  placeHolder: PropTypes.string,
 };
 
 export default Input;

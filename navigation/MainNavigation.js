@@ -3,6 +3,8 @@ import {Routes} from './Routes';
 import Home from '../screens/Home/Home';
 import Login from '../screens/Login/Login';
 import Register from '../screens/Register/Register';
+import CardPayment from '../screens/CardPayment/CardPayment';
+
 
 
 const Stack = createStackNavigator();
@@ -12,7 +14,8 @@ const MainNavigation = () => {
     <Stack.Navigator screenOptions={{header: () => null, headerShown: false}}>
       {/* <Stack.Screen name={Routes.Home} component={Home} /> */}
       {/* <Stack.Screen name={Routes.Login} component={Login} /> */}
-      <Stack.Screen name={Routes.Register} component={Register} />
+      {/* <Stack.Screen name={Routes.Register} component={Register} /> */}
+      <Stack.Screen name={Routes.CardPayment} component={CardPayment} />
     </Stack.Navigator>
   );
 };

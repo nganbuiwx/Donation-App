@@ -10,7 +10,7 @@ const style = StyleSheet.create({
     fontFamily: 'Inter',
     fontSize: 12,
   },
-  TextInput:{
+  TextInput: {
     borderBottomWidth: 1,
     borderColor: 'rgba(167, 167, 167, 0.50)',
   },
