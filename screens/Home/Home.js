@@ -23,17 +23,28 @@ import {horizontalScale} from '../../assets/styles/scaling';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
 import {resetToInitialState, updateFirstName} from '../../redux/reducers/User';
 import {updateSelectedCategoryId} from '../../redux/reducers/Categories';
+import {resetDonations, updateSelectedDonationId} from '../../redux/reducers/Donations';
 
 const Home = ({navigation}) => {
   const categories = useSelector(state => state.categories);
+  const donations = useSelector(state => state.donations);
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
   // dispatch(resetToInitialState());
 
+  const [donationItems, setDonationItems] = useState([]);
   const [categoryPage, setCategoryPage] = useState(1);
   const [categoryList, setCategoryList] = useState([]);
   const [isLoadingCategories, setIsLoadingCategories] = useState(false);
   const categoryPageSize = 4;
+
+  // dispatch(resetDonations());
+  useEffect(() => {
+    const items = donations.donations.filter(value =>
+      value.categoryIds.includes(categories.selectedCategory),
+    );
+    setDonationItems(items);
+  }, [categories.selectedCategory]);
 
   useEffect(() => {
     setIsLoadingCategories(true);
@@ -76,6 +87,7 @@ const Home = ({navigation}) => {
               }}
             />
           </View>
+          {/* Highlighted Image */}
           <Pressable style={style.highlightedImageContainer}>
             <Image
               style={style.highlightedImage}
@@ -121,65 +133,32 @@ const Home = ({navigation}) => {
             />
           </View>
 
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              paddingHorizontal: horizontalScale(24),
-            }}>
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate(Routes.Detail);
-              }}>
-              <SingleDonationItem
-                uri={'../../assets/images/cactus-image.jpeg'}
-                badgeTitle={'Environment'}
-                donationTitle={'Tree Cactus'}
-                price={44}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate(Routes.Detail);
-              }}>
-              <SingleDonationItem
-                uri={'../../assets/images/cactus-image.jpeg'}
-                badgeTitle={'Education'}
-                donationTitle={'Genius Rubik'}
-                price={50}
-              />
-            </TouchableOpacity>
-          </View>
-
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              paddingHorizontal: horizontalScale(24),
-            }}>
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate(Routes.Detail);
-              }}>
-              <SingleDonationItem
-                uri={'../../assets/images/cactus-image.jpeg'}
-                badgeTitle={'Environment'}
-                donationTitle={'Tree Cactus'}
-                price={44}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate(Routes.Detail);
-              }}>
-              <SingleDonationItem
-                uri={'../../assets/images/cactus-image.jpeg'}
-                badgeTitle={'Education'}
-                donationTitle={'Genius Rubik'}
-                price={50}
-              />
-            </TouchableOpacity>
-          </View>
+          {donationItems.length > 0 && (
+            <View style={style.donationContainer}>
+              {donationItems.map(value => (
+                <View
+                  key={value.donationContainerId}
+                  style={style.SingleDonationItem}>
+                  <SingleDonationItem
+                    uri={value.image}
+                    donationTitle={value.name}
+                    badgeTitle={
+                      categories.categories.filter(
+                        val => val.categoryId === categories.selectedCategory,
+                      )[0].name
+                    }
+                    key={value.donationItemId}
+                    price={parseFloat(value.price)}
+                    donationItemId={value.donationItemId}
+                    onPress={selectedDonationId => {
+                      dispatch(updateSelectedDonationId(selectedDonationId));
+                      navigation.navigate(Routes.Detail);
+                    }}
+                  />
+                </View>
+              ))}
+            </View>
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>

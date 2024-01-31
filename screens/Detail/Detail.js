@@ -9,8 +9,12 @@ import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 import {scaleFontSize, verticalScale} from '../../assets/styles/scaling';
 import Badge from '../../components/Badge/Badge';
 import {Routes} from '../../navigation/Routes';
+import {useSelector} from 'react-redux';
 
 const Detail = ({navigation}) => {
+  const donationItemInformation = useSelector(
+    state => state.donations.selectedDonationInformation,
+  );
   return (
     <SafeAreaView>
       <View>
