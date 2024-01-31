@@ -2,8 +2,10 @@ import {StyleSheet} from 'react-native';
 import {horizontalScale, verticalScale} from '../../assets/styles/scaling';
 
 const style = StyleSheet.create({
+
   detailContainer: {
     margin: horizontalScale(24),
+    marginTop: verticalScale(7),
   },
   image: {
     height: verticalScale(240),
@@ -18,7 +20,7 @@ const style = StyleSheet.create({
     letterSpacing: 0.28,
   },
   contentContainer: {
-    marginTop: verticalScale(10)
+    marginTop: verticalScale(10),
   },
 });
 
