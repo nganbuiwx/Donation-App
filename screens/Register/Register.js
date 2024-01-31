@@ -8,17 +8,24 @@ import Input from '../../components/Input/Input';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 import {scaleFontSize} from '../../assets/styles/scaling';
+import {Routes} from '../../navigation/Routes';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const Register = () => {
+const Register = ({navigation}) => {
   return (
     <SafeAreaView style={(globalStyle.backgroundWhite, globalStyle.flex)}>
       <View>
-        <FontAwesomeIcon
-          icon={faArrowLeft}
-          color={'#022150'}
-          size={scaleFontSize(24)}
-          style={{margin: 20}}
-        />
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate(Routes.Login);
+          }}>
+          <FontAwesomeIcon
+            icon={faArrowLeft}
+            color={'#022150'}
+            size={scaleFontSize(24)}
+            style={{margin: 20}}
+          />
+        </TouchableOpacity>
       </View>
       <View style={style.registerContainer}>
         <Header title={'Hello and Welcome !'} type={1}></Header>
@@ -44,7 +51,7 @@ const Register = () => {
         <Button
           title={'Register'}
           onPress={() => {
-            console.log('hello');
+            navigation.navigate(Routes.Login);
           }}
         />
       </View>

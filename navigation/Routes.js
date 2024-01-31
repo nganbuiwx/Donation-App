@@ -1,7 +1,7 @@
 export const Routes = {
-  Home: 'Home',
   Login: 'Login',
   Register: 'Register',
+  Home: 'Home',
   Detail: 'Detail',
   CardPayment: 'CardPayment',
 };

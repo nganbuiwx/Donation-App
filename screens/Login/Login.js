@@ -5,8 +5,10 @@ import style from './style';
 import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
+import {Routes} from '../../navigation/Routes';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const Login = () => {
+const Login = ({navigation}) => {
   return (
     <SafeAreaView style={(globalStyle.backgroundWhite, globalStyle.flex)}>
       <View style={style.loginContainer}>
@@ -26,14 +28,19 @@ const Login = () => {
         <Button
           title={'Login'}
           onPress={() => {
-            console.log('hello');
+            navigation.navigate(Routes.Home);
           }}
         />
         <View style={{alignItems: 'center', marginTop: 20}}>
-          <Header
-            title={'Don’t have an account?'}
-            type={3}
-            color={'#156CF7'}></Header>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate(Routes.Register);
+            }}>
+            <Header
+              title={'Don’t have an account?'}
+              type={3}
+              color={'#156CF7'}></Header>
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>

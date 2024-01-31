@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, SafeAreaView, Image} from 'react-native';
+import {View, SafeAreaView, Image, TouchableOpacity} from 'react-native';
 
 import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
@@ -12,8 +12,10 @@ import style from './style';
 import SingleDonationItem from '../../components/SingleDonationItem/SingleDonationItem';
 import {horizontalScale} from '../../assets/styles/scaling';
 import {ScrollView} from 'react-native-gesture-handler';
+import {Routes} from '../../navigation/Routes';
 
-const Home = () => {
+
+const Home = ({navigation}) => {
   return (
     <SafeAreaView style={(globalStyle.backgroundWhite, globalStyle.flex)}>
       <ScrollView>
@@ -34,13 +36,6 @@ const Home = () => {
               }}
             />
           </View>
-          {/* <Button
-          title={'Donate'}
-          onPress={() => {
-            console.log('hello');
-          }}
-          <Button title={'Donate'} isDisabled={true} />
-          /> */}
           {/* Category */}
           <View style={style.categoryContainer}>
             <Header title={'Select Category'} type={2} />
@@ -59,18 +54,28 @@ const Home = () => {
               justifyContent: 'space-between',
               paddingHorizontal: horizontalScale(24),
             }}>
-            <SingleDonationItem
-              uri={'../../assets/images/cactus-image.jpeg'}
-              badgeTitle={'Environment'}
-              donationTitle={'Tree Cactus'}
-              price={44}
-            />
-            <SingleDonationItem
-              uri={'../../assets/images/cactus-image.jpeg'}
-              badgeTitle={'Education'}
-              donationTitle={'Tree Cactus'}
-              price={44}
-            />
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate(Routes.Detail);
+              }}>
+              <SingleDonationItem
+                uri={'../../assets/images/cactus-image.jpeg'}
+                badgeTitle={'Environment'}
+                donationTitle={'Tree Cactus'}
+                price={44}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate(Routes.Detail);
+              }}>
+              <SingleDonationItem
+                uri={'../../assets/images/cactus-image.jpeg'}
+                badgeTitle={'Education'}
+                donationTitle={'Genius Rubik'}
+                price={50}
+              />
+            </TouchableOpacity>
           </View>
 
           <View
@@ -79,18 +84,28 @@ const Home = () => {
               justifyContent: 'space-between',
               paddingHorizontal: horizontalScale(24),
             }}>
-            <SingleDonationItem
-              uri={'../../assets/images/cactus-image.jpeg'}
-              badgeTitle={'Environment'}
-              donationTitle={'Tree Cactus'}
-              price={44}
-            />
-            <SingleDonationItem
-              uri={'../../assets/images/cactus-image.jpeg'}
-              badgeTitle={'Environment'}
-              donationTitle={'Tree Cactus'}
-              price={44}
-            />
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate(Routes.Detail);
+              }}>
+              <SingleDonationItem
+                uri={'../../assets/images/cactus-image.jpeg'}
+                badgeTitle={'Environment'}
+                donationTitle={'Tree Cactus'}
+                price={44}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate(Routes.Detail);
+              }}>
+              <SingleDonationItem
+                uri={'../../assets/images/cactus-image.jpeg'}
+                badgeTitle={'Education'}
+                donationTitle={'Genius Rubik'}
+                price={50}
+              />
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
