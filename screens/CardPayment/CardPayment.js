@@ -49,7 +49,7 @@ const CardPayment = ({navigation}) => {
             isSecureTextEntry={false}
             keyboardType={'numeric'}
             placeHolder={'ex. 06/24'}
-            style={{padding: '50px'}}
+            style={{flex: 1}}
             value={expiredDate}
             onChangeText={value => setExpiredDate(value)}
           />
@@ -59,6 +59,7 @@ const CardPayment = ({navigation}) => {
             keyboardType={'numeric'}
             placeHolder={'ex. 599'}
             value={CVV}
+            style={{flex: 1}}
             onChangeText={value => setCVV(value)}
           />
         </View>
