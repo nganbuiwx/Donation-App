@@ -5,11 +5,8 @@ import style from './style';
 import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
-import {scaleFontSize} from '../../assets/styles/scaling';
 import {Routes} from '../../navigation/Routes';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import BackButton from '../../components/BackButton/BackButton';
 
 const Register = ({navigation}) => {
   const [name, setName] = useState('');
@@ -18,17 +15,7 @@ const Register = ({navigation}) => {
   return (
     <SafeAreaView style={(globalStyle.backgroundWhite, globalStyle.flex)}>
       <View>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate(Routes.Login);
-          }}>
-          <FontAwesomeIcon
-            icon={faArrowLeft}
-            color={'#022150'}
-            size={scaleFontSize(24)}
-            style={{margin: 20}}
-          />
-        </TouchableOpacity>
+        <BackButton onPress={() => navigation.goBack()} />
       </View>
       <View style={style.registerContainer}>
         <Header title={'Hello and Welcome !'} type={1}></Header>

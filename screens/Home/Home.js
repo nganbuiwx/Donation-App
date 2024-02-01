@@ -23,7 +23,10 @@ import {horizontalScale} from '../../assets/styles/scaling';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
 import {resetToInitialState, updateFirstName} from '../../redux/reducers/User';
 import {updateSelectedCategoryId} from '../../redux/reducers/Categories';
-import {resetDonations, updateSelectedDonationId} from '../../redux/reducers/Donations';
+import {
+  resetDonations,
+  updateSelectedDonationId,
+} from '../../redux/reducers/Donations';
 
 const Home = ({navigation}) => {
   const categories = useSelector(state => state.categories);
@@ -46,6 +49,7 @@ const Home = ({navigation}) => {
     setDonationItems(items);
   }, [categories.selectedCategory]);
 
+ 
   useEffect(() => {
     setIsLoadingCategories(true);
     setCategoryList(
@@ -132,31 +136,34 @@ const Home = ({navigation}) => {
               )}
             />
           </View>
-
+          {/* Donation Item */}
           {donationItems.length > 0 && (
             <View style={style.donationContainer}>
-              {donationItems.map(value => (
-                <View
-                  key={value.donationContainerId}
-                  style={style.SingleDonationItem}>
-                  <SingleDonationItem
-                    uri={value.image}
-                    donationTitle={value.name}
-                    badgeTitle={
-                      categories.categories.filter(
-                        val => val.categoryId === categories.selectedCategory,
-                      )[0].name
-                    }
+              {donationItems.map(value => {
+                const categoryInformation = categories.categories.find(
+                  val => val.categoryId === categories.selectedCategory,
+                );
+                return (
+                  <View
                     key={value.donationItemId}
-                    price={parseFloat(value.price)}
-                    donationItemId={value.donationItemId}
-                    onPress={selectedDonationId => {
-                      dispatch(updateSelectedDonationId(selectedDonationId));
-                      navigation.navigate(Routes.Detail);
-                    }}
-                  />
-                </View>
-              ))}
+                    style={style.SingleDonationItem}>
+                    <SingleDonationItem
+                      uri={value.image}
+                      donationTitle={value.name}
+                      badgeTitle={categoryInformation.name}
+                      key={value.donationItemId}
+                      price={parseFloat(value.price)}
+                      donationItemId={value.donationItemId}
+                      onPress={selectedDonationId => {
+                        dispatch(updateSelectedDonationId(selectedDonationId));
+                        navigation.navigate(Routes.Detail, {
+                          categoryInformation,
+                        });
+                      }}
+                    />
+                  </View>
+                );
+              })}
             </View>
           )}
         </View>

@@ -14,58 +14,43 @@ import globalStyle from '../../assets/styles/globalStyle';
 import {ScrollView} from 'react-native-gesture-handler';
 import BackButton from '../../components/BackButton/BackButton';
 
-const Detail = ({navigation}) => {
+const Detail = ({navigation, route}) => {
   const donationItemInformation = useSelector(
     state => state.donations.selectedDonationInformation,
   );
+  const categoryInformation = route.params.categoryInformation;
+  console.log(route.params);
   return (
     <SafeAreaView style={(globalStyle.backgroundWhite, globalStyle.flex)}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View>
-          {/* <TouchableOpacity
-            onPress={() => {
-              navigation.navigate(Routes.Home);
-            }}>
-            <FontAwesomeIcon
-              icon={faArrowLeft}
-              color={'#022150'}
-              size={scaleFontSize(24)}
-              style={{margin: 20}}
-            />
-          </TouchableOpacity> */}
           <BackButton onPress={() => navigation.goBack()} />
         </View>
         <View style={style.detailContainer}>
           <Image
             source={require('../../assets/images/cactus-image.jpeg')}
+            // source={{uri:donationItemInformation.image}}
             style={style.image}
           />
+          {/* category name */}
+          <Badge title={categoryInformation.name} />
 
-          <Badge title={'Environment'} />
           <View style={style.contentContainer}>
-            <Header title={'Tree Cactus Imitatition'} type={1} />
-            <Text style={style.content}>
-              Donating to a cause you care about can make a positive impact on
-              the world. Whether it's a monetary gift, time or resources, every
-              donation can help make a difference. Charitable organizations rely
-              on the generosity of people like you to support their mission and
-              provide assistance to those in need. So why not consider giving a
-              gift today and feel the satisfaction of knowing you've made a
-              difference in someone's life. Your donation, no matter how small,
-              can help change lives for the better.
+            <Header title={donationItemInformation.name} type={1} />
+            <Text style={style.description}>
+              {donationItemInformation.description}
             </Text>
-          </View>
-
-          <View>
-            <Button
-              title={'Donate'}
-              onPress={() => {
-                navigation.navigate(Routes.CardPayment);
-              }}
-            />
           </View>
         </View>
       </ScrollView>
+      <View style={style.donateButton}>
+        <Button
+          title={'Donate'}
+          onPress={() => {
+            navigation.navigate(Routes.CardPayment);
+          }}
+        />
+      </View>
     </SafeAreaView>
   );
 };

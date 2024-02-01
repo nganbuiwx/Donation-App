@@ -19,12 +19,13 @@ const SingleDonationItem = props => {
           <Image
             resizeMode={'contain'}
             source={require('../../assets/images/cactus-image.jpeg')}
+            // source={{uri: props.uri}}
             style={style.image}
           />
         </View>
 
         <View style={style.donationInformation}>
-          <Header title={props.donationTitle} type={2} color={'#0A043C'} />
+          <Header title={props.donationTitle} type={3} color={'#0A043C'} />
           <View style={style.price}>
             <Header
               title={'$' + props.price.toFixed(2)}
