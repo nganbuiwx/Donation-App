@@ -27,6 +27,7 @@ const CardPayment = ({navigation}) => {
           isSecureTextEntry={false}
           keyboardType={'default'}
           value={name}
+          placeHolder={'Enter your card holder name'}
           onChangeText={value => setName(value)}
         />
 
@@ -44,24 +45,26 @@ const CardPayment = ({navigation}) => {
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}>
-          <Input
-            title={'Expired Date'}
-            isSecureTextEntry={false}
-            keyboardType={'numeric'}
-            placeHolder={'ex. 06/24'}
-            style={{flex: 1}}
-            value={expiredDate}
-            onChangeText={value => setExpiredDate(value)}
-          />
-          <Input
-            title={'CVV'}
-            isSecureTextEntry={false}
-            keyboardType={'numeric'}
-            placeHolder={'ex. 599'}
-            value={CVV}
-            style={{flex: 1}}
-            onChangeText={value => setCVV(value)}
-          />
+          <View style={{flex: 1}}>
+            <Input
+              title={'Expired Date'}
+              isSecureTextEntry={false}
+              keyboardType={'numeric'}
+              placeHolder={'ex. 06/24'}
+              value={expiredDate}
+              onChangeText={value => setExpiredDate(value)}
+            />
+          </View>
+          <View style={{flex: 1}}>
+            <Input
+              title={'CVV'}
+              isSecureTextEntry={false}
+              keyboardType={'numeric'}
+              placeHolder={'ex. 599'}
+              value={CVV}
+              onChangeText={value => setCVV(value)}
+            />
+          </View>
         </View>
         <View style={{marginTop: verticalScale(219)}}>
           <Button
