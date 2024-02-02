@@ -45,7 +45,7 @@ const CardPayment = ({navigation}) => {
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}>
-          <View style={{flex: 1}}>
+          <View style={{flex: 1, marginRight: 20}}>
             <Input
               title={'Expired Date'}
               isSecureTextEntry={false}

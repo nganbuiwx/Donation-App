@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, SafeAreaView, ScrollView, Text} from 'react-native';
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
@@ -11,12 +11,20 @@ import {loginUser} from '../../api/user';
 import {useDispatch} from 'react-redux';
 import {resetToInitialState, logIn} from '../../redux/reducers/User';
 
-const Login = ({navigation}) => {
+const Login = ({navigation, route}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const dispatch = useDispatch();
-  dispatch(resetToInitialState());
+
+  useEffect(() => {
+    if (route?.params?.email && route?.params?.password) {
+      setEmail(route.params.email);
+      setPassword(route.params.password);
+    }
+  }, [route.params]);
+
+  // dispatch(resetToInitialState());
 
   return (
     <SafeAreaView style={(globalStyle.backgroundWhite, globalStyle.flex)}>

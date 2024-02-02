@@ -9,6 +9,7 @@ const style = StyleSheet.create({
     color: '#36455A',
     fontFamily: 'Inter',
     fontSize: 12,
+    marginBottom: verticalScale(10),
   },
   TextInput: {
     borderBottomWidth: 1,

@@ -15,6 +15,7 @@ const Register = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
+  
   return (
     <SafeAreaView style={(globalStyle.backgroundWhite, globalStyle.flex)}>
       <View>
@@ -65,7 +66,10 @@ const Register = ({navigation}) => {
               } else {
                 setError('');
                 setSuccess('Your account has been registered.');
-                setTimeout(() => navigation.goBack(), 3000);
+                setTimeout(
+                  () => navigation.navigate('Login', {email, password}),
+                  1000,
+                );
               }
             }}
           />

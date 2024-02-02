@@ -1,10 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, TextInput, Text} from 'react-native';
 import PropTypes from 'prop-types';
 import style from './style';
 
 const Input = props => {
   const [textValue, setTextValue] = useState('');
+
+  useEffect(() => {
+    if (props.value) {
+      setTextValue(props.value);
+    }
+  }, [props.value]);
+
   return (
     <View style={style.InputContainer}>
       <Text style={style.textContent}>{props.title}</Text>
