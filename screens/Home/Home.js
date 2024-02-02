@@ -19,14 +19,11 @@ import {Routes} from '../../navigation/Routes';
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
 import SingleDonationItem from '../../components/SingleDonationItem/SingleDonationItem';
-import {horizontalScale} from '../../assets/styles/scaling';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
 import {resetToInitialState, updateFirstName} from '../../redux/reducers/User';
 import {updateSelectedCategoryId} from '../../redux/reducers/Categories';
-import {
-  resetDonations,
-  updateSelectedDonationId,
-} from '../../redux/reducers/Donations';
+import {updateSelectedDonationId} from '../../redux/reducers/Donations';
+import {logOut} from '../../api/user';
 
 const Home = ({navigation}) => {
   const categories = useSelector(state => state.categories);
@@ -49,7 +46,6 @@ const Home = ({navigation}) => {
     setDonationItems(items);
   }, [categories.selectedCategory]);
 
- 
   useEffect(() => {
     setIsLoadingCategories(true);
     setCategoryList(
@@ -77,7 +73,16 @@ const Home = ({navigation}) => {
               <Header title={'Hello,'} type={2} />
               <Header title={user.displayName + ' 👋'} type={1} />
             </View>
-            <Image source={require('../../assets/images/user.png')} />
+            <View>
+              <Image source={require('../../assets/images/user.png')} />
+              <Pressable
+                onPress={async () => {
+                  dispatch(resetToInitialState());
+                  await logOut();
+                }}>
+                <Header type={3} title={'Logout'} color={'#156CF7'} />
+              </Pressable>
+            </View>
             {/* <Image source={user.profileImage} /> */}
           </View>
           {/* Search */}

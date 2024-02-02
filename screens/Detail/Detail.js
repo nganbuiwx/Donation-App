@@ -28,7 +28,7 @@ const Detail = ({navigation, route}) => {
         <View style={style.detailContainer}>
           <Image
             // source={require('../../assets/images/cactus-image.jpeg')}
-            source={{uri:donationItemInformation.image}}
+            source={{uri: donationItemInformation.image}}
             style={style.image}
           />
           {/* category name */}
