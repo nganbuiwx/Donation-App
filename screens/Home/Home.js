@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   Image,
   Pressable,
+  Dimensions
 } from 'react-native';
 import Header from '../../components/Header/Header';
 import Tab from '../../components/Tab/Tab';
