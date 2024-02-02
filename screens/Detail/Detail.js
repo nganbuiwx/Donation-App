@@ -19,7 +19,6 @@ const Detail = ({navigation, route}) => {
     state => state.donations.selectedDonationInformation,
   );
   const categoryInformation = route.params.categoryInformation;
-  console.log(route.params);
   return (
     <SafeAreaView style={(globalStyle.backgroundWhite, globalStyle.flex)}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -28,8 +27,8 @@ const Detail = ({navigation, route}) => {
         </View>
         <View style={style.detailContainer}>
           <Image
-            source={require('../../assets/images/cactus-image.jpeg')}
-            // source={{uri:donationItemInformation.image}}
+            // source={require('../../assets/images/cactus-image.jpeg')}
+            source={{uri:donationItemInformation.image}}
             style={style.image}
           />
           {/* category name */}

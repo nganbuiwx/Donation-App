@@ -17,9 +17,9 @@ const SingleDonationItem = props => {
             <Badge title={props.badgeTitle} />
           </View>
           <Image
-            resizeMode={'contain'}
-            source={require('../../assets/images/cactus-image.jpeg')}
-            // source={{uri: props.uri}}
+            resizeMode={'cover'}
+            // source={require('../../assets/images/cactus-image.jpeg')}
+            source={{uri: props.uri}}
             style={style.image}
           />
         </View>
