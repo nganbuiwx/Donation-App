@@ -3,24 +3,18 @@ import {
   View,
   SafeAreaView,
   Image,
-  TouchableOpacity,
   Pressable,
-  Text,
 } from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-
 import Header from '../../components/Header/Header';
-import Button from '../../components/Button/Button';
 import Tab from '../../components/Tab/Tab';
-import Badge from '../../components/Badge/Badge';
 import Search from '../../components/Search/Search';
 import {Routes} from '../../navigation/Routes';
-
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
 import SingleDonationItem from '../../components/SingleDonationItem/SingleDonationItem';
+import {useDispatch, useSelector} from 'react-redux';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
-import {resetToInitialState, updateFirstName} from '../../redux/reducers/User';
+import {resetToInitialState} from '../../redux/reducers/User';
 import {updateSelectedCategoryId} from '../../redux/reducers/Categories';
 import {updateSelectedDonationId} from '../../redux/reducers/Donations';
 import {logOut} from '../../api/user';

@@ -31,7 +31,7 @@ const store = configureStore({
 });
 
 export default store;
-
+// ket hop Redux Store vs Redux Persist 
 export const persistor = persistStore(store);
-
+// xoa data luu boi Redux Persist
 persistor.purge();
