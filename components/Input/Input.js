@@ -29,6 +29,7 @@ Input.default = {
   keyboardType: 'default',
   placeHolder: '',
   onChangeText: () => {},
+  isDisabled: () => {},
 };
 
 Input.propTypes = {
@@ -37,6 +38,7 @@ Input.propTypes = {
   keyboardType: PropTypes.string.isRequired,
   placeHolder: PropTypes.string,
   onChangeText: PropTypes.func,
+  isDisabled: PropTypes.func,
 };
 
 export default Input;

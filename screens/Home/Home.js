@@ -75,10 +75,7 @@ const Home = ({navigation}) => {
           <View style={style.topHeaderContainer}>
             <View style={style.topHeaderContent}>
               <Header title={'Hello,'} type={2} />
-              <Header
-                title={user.firstName + ' ' + user.lastName[0] + '.👋'}
-                type={1}
-              />
+              <Header title={user.displayName + ' 👋'} type={1} />
             </View>
             <Image source={require('../../assets/images/user.png')} />
             {/* <Image source={user.profileImage} /> */}
