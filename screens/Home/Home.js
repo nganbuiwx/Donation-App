@@ -4,7 +4,8 @@ import {
   SafeAreaView,
   Image,
   Pressable,
-  Dimensions
+  Dimensions,
+  Text,
 } from 'react-native';
 import Header from '../../components/Header/Header';
 import Tab from '../../components/Tab/Tab';
@@ -19,6 +20,7 @@ import {resetToInitialState} from '../../redux/reducers/User';
 import {updateSelectedCategoryId} from '../../redux/reducers/Categories';
 import {updateSelectedDonationId} from '../../redux/reducers/Donations';
 import {logOut} from '../../api/user';
+import {FONTSIZE} from '../../utils/theme';
 
 const Home = ({navigation}) => {
   const categories = useSelector(state => state.categories);
@@ -59,14 +61,16 @@ const Home = ({navigation}) => {
     return items.slice(startIndex, endIndex);
   };
   return (
-    <SafeAreaView style={(globalStyle.backgroundWhite, globalStyle.flex)}>
+    <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View>
           {/* Header */}
           <View style={style.topHeaderContainer}>
             <View style={style.topHeaderContent}>
-              <Header title={'Hello,'} type={2} />
-              <Header title={user.displayName + ' 👋'} type={1} />
+              <Text style={globalStyle.header}>Hello, </Text>
+              <Text style={{fontSize: FONTSIZE.size_20, fontWeight: '800'}}>
+                {user.displayName + ' 👋'}
+              </Text>
             </View>
             <View>
               <Image source={require('../../assets/images/user.png')} />

@@ -1,21 +1,19 @@
 import {StyleSheet} from 'react-native';
-import {
-  horizontalScale,
-  verticalScale,
-  scaleFontSize,
-} from '../../assets/styles/scaling';
+import {scale, verticalScale} from 'react-native-size-matters';
+import {FONTSIZE} from '../../utils/theme';
+import Colors from '../../utils/color';
 
 const style = StyleSheet.create({
   loginContainer: {
-    margin: horizontalScale(25),
-    marginTop: horizontalScale(207),
+    margin: scale(20),
+    marginTop: verticalScale(150),
   },
   errorMessage: {
     fontFamily: 'Inter',
-    fontSize: scaleFontSize(16),
-    color: '#FF0000',
-    marginTop: verticalScale(12),
-    marginBottom: verticalScale(12),
+    fontSize: FONTSIZE.size_16,
+    color: Colors.Red,
+    marginTop: scale(12),
+    marginBottom: scale(12),
   },
 });
 

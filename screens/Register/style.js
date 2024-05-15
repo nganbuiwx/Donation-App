@@ -1,9 +1,13 @@
 import {StyleSheet} from 'react-native';
-import {horizontalScale, scaleFontSize, verticalScale} from '../../assets/styles/scaling';
+import {
+  horizontalScale,
+  scaleFontSize,
+  verticalScale,
+} from '../../assets/styles/scaling';
 
 const style = StyleSheet.create({
   registerContainer: {
-    margin: horizontalScale(24),
+    margin: horizontalScale(20),
     marginTop: horizontalScale(112),
   },
   errorMessage: {

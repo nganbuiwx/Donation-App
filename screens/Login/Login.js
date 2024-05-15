@@ -2,14 +2,16 @@ import React, {useState, useEffect} from 'react';
 import {View, SafeAreaView, ScrollView, Text} from 'react-native';
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
-import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
 import {Routes} from '../../navigation/Routes';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {loginUser} from '../../api/user';
 import {useDispatch} from 'react-redux';
-import {resetToInitialState, logIn} from '../../redux/reducers/User';
+import {logIn} from '../../redux/reducers/User';
+import {FONTSIZE} from '../../utils/theme';
+import Colors from '../../utils/color';
+import {scale} from 'react-native-size-matters';
 
 const Login = ({navigation, route}) => {
   const [email, setEmail] = useState('');
@@ -27,11 +29,15 @@ const Login = ({navigation, route}) => {
   // dispatch(resetToInitialState());
 
   return (
-    <SafeAreaView style={(globalStyle.backgroundWhite, globalStyle.flex)}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+    <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        automaticallyAdjustKeyboardInsets>
         <View style={style.loginContainer}>
-          <Header title={'Welcome Back'} type={1}></Header>
-
+          <Text style={globalStyle.header}>Welcome Back!</Text>
+          <Text style={globalStyle.descriptionText}>
+            Sign in to your account.
+          </Text>
           <Input
             title={'Email'}
             isSecureTextEntry={false}
@@ -48,10 +54,8 @@ const Login = ({navigation, route}) => {
             onChangeText={value => setPassword(value)}
             placeHolder={'*********'}
           />
-
           {/* Notification */}
           {error.length > 0 && <Text style={style.errorMessage}>{error}</Text>}
-
           {/* Login button */}
           <Button
             title={'Login'}
@@ -67,16 +71,14 @@ const Login = ({navigation, route}) => {
               }
             }}
           />
-
-          <View style={{alignItems: 'center', marginTop: 20}}>
+          <View style={{alignItems: 'center', marginTop: scale(20)}}>
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate(Routes.Register);
               }}>
-              <Header
-                title={'Don’t have an account?'}
-                type={3}
-                color={'#156CF7'}></Header>
+              <Text style={{color: Colors.Blue, fontSize: FONTSIZE.size_16}}>
+                Don’t have an account?
+              </Text>
             </TouchableOpacity>
           </View>
         </View>

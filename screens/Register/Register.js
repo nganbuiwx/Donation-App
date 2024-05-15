@@ -5,9 +5,9 @@ import style from './style';
 import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
-import {Routes} from '../../navigation/Routes';
 import BackButton from '../../components/BackButton/BackButton';
 import {createUser} from '../../api/user';
+import {scale} from 'react-native-size-matters';
 
 const Register = ({navigation}) => {
   const [name, setName] = useState('');
@@ -15,16 +15,17 @@ const Register = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
-  
-  return (
-    <SafeAreaView style={(globalStyle.backgroundWhite, globalStyle.flex)}>
-      <View>
-        <BackButton onPress={() => navigation.goBack()} />
-      </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={style.registerContainer}>
-          <Header title={'Hello and Welcome !'} type={1}></Header>
 
+  return (
+    <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        automaticallyAdjustKeyboardInsets>
+        <View style={globalStyle.BackButton}>
+          <BackButton onPress={() => navigation.goBack()} />
+        </View>
+        <View style={style.registerContainer}>
+          <Text style={globalStyle.header}>Hello and Welcome !</Text>
           <Input
             title={'First & Last Name'}
             isSecureTextEntry={false}

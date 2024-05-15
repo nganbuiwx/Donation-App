@@ -1,19 +1,26 @@
 import {StyleSheet} from 'react-native';
-import {horizontalScale, verticalScale} from '../../assets/styles/scaling';
+import {FONTSIZE} from '../../utils/theme';
+import {scale} from 'react-native-size-matters';
+import Colors from '../../utils/color';
 
 const style = StyleSheet.create({
   InputContainer: {
-    marginTop: verticalScale(24),
+    marginTop: scale(24),
   },
   textContent: {
-    color: '#36455A',
+    color: Colors.GreySlot,
     fontFamily: 'Inter',
-    fontSize: 12,
-    marginBottom: verticalScale(10),
+    fontSize: FONTSIZE.size_14,
+    marginBottom: scale(10),
   },
   TextInput: {
-    borderBottomWidth: 1,
-    borderColor: 'rgba(167, 167, 167, 0.50)',
+    borderWidth: 1,
+    padding: scale(20),
+    fontFamily: 'Inter',
+    fontSize: FONTSIZE.size_14,
+    borderColor: Colors.Grey,
+    backgroundColor: Colors.Background,
+    borderRadius: scale(8),
   },
 });
 

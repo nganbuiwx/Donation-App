@@ -20,9 +20,9 @@ const Detail = ({navigation, route}) => {
   );
   const categoryInformation = route.params.categoryInformation;
   return (
-    <SafeAreaView style={(globalStyle.backgroundWhite, globalStyle.flex)}>
+    <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View>
+        <View style={globalStyle.BackButton}>
           <BackButton onPress={() => navigation.goBack()} />
         </View>
         <View style={style.detailContainer}>
