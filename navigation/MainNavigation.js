@@ -5,18 +5,58 @@ import Login from '../screens/Login/Login';
 import Register from '../screens/Register/Register';
 import CardPayment from '../screens/CardPayment/CardPayment';
 import Detail from '../screens/Detail/Detail';
+import Onboarding from '../screens/Onboarding/Onboarding';
+import {useEffect, useState} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+// import {createMaterialBottomTabNavigator} from 'react-native-paper/react-navigation';
+
+// const Tab = createMaterialBottomTabNavigator();
+
+// export const TabNavigation = () => {
+//   return (
+//     <Tab.Navigator
+//       initialRouteName={Routes.Home}
+//       activeColor="#e91e63"
+//       barStyle={{backgroundColor: 'tomato'}}>
+//       <Tab.Screen name={Routes.Home} component={Home} />
+//       <Tab.Screen name={Routes.Detail} component={Detail} />
+//     </Tab.Navigator>
+//   );
+// };
 
 const Stack = createStackNavigator();
 
 export const NonAuthenticated = () => {
-  return (
-    <Stack.Navigator
-      initialRouteName={Routes.Login}
-      screenOptions={{header: () => null, headerShown: false}}>
-      <Stack.Screen name={Routes.Login} component={Login} />
-      <Stack.Screen name={Routes.Register} component={Register} />
-    </Stack.Navigator>
-  );
+  const [isFirstLaunch, setIsFirstLaunch] = useState(null);
+
+  useEffect(() => {
+    AsyncStorage.getItem('alreadyLaunched').then(value => {
+      if (value == null) {
+        AsyncStorage.setItem('alreadyLaunched', 'true');
+        setIsFirstLaunch(true);
+      } else {
+        setIsFirstLaunch(false);
+      }
+    });
+  }, []);
+  if (isFirstLaunch === null) {
+    return null;
+  } else if (isFirstLaunch === true) {
+    return (
+      <Stack.Navigator screenOptions={{header: () => null, headerShown: false}}>
+        <Stack.Screen name="Onboarding" component={Onboarding} />
+        <Stack.Screen name={Routes.Login} component={Login} />
+        <Stack.Screen name={Routes.Register} component={Register} />
+      </Stack.Navigator>
+    );
+  } else {
+    return (
+      <Stack.Navigator screenOptions={{header: () => null, headerShown: false}}>
+        <Stack.Screen name={Routes.Login} component={Login} />
+        <Stack.Screen name={Routes.Register} component={Register} />
+      </Stack.Navigator>
+    );
+  }
 };
 
 export const Authenticated = () => {
