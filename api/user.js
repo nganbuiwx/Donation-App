@@ -19,7 +19,10 @@ export const createUser = async (fullName, email, password) => {
 
 export const loginUser = async (email, password) => {
   try {
-    const response = await auth().signInWithEmailAndPassword(email, password);
+    const response = await auth().signInWithEmailAndPassword(
+      email.trim(),
+      password.trim(),
+    );
     const token = await response.user.getIdToken();
     return {
       status: true,
