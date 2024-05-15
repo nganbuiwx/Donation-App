@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {View, SafeAreaView, TouchableOpacity} from 'react-native';
+import {View, SafeAreaView, Text} from 'react-native';
 import style from './style';
-import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
-import {scaleFontSize, verticalScale} from '../../assets/styles/scaling';
 import {Routes} from '../../navigation/Routes';
 import BackButton from '../../components/BackButton/BackButton';
+import globalStyle from '../../assets/styles/globalStyle';
+import {scale} from 'react-native-size-matters';
 
 const CardPayment = ({navigation}) => {
   const [name, setName] = useState('');
@@ -15,13 +15,12 @@ const CardPayment = ({navigation}) => {
   const [CVV, setCVV] = useState('');
 
   return (
-    <SafeAreaView>
-      <View>
+    <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
+      <View style={globalStyle.BackButton}>
         <BackButton onPress={() => navigation.goBack()} />
       </View>
       <View style={style.cardPaymentContainer}>
-        <Header title={'My Card Payment'} type={1}></Header>
-
+        <Text style={globalStyle.header}>My Card Payment</Text>
         <Input
           title={'Card Holder Name'}
           isSecureTextEntry={false}
@@ -66,11 +65,10 @@ const CardPayment = ({navigation}) => {
             />
           </View>
         </View>
-        <View style={{marginTop: verticalScale(219)}}>
+        <View style={{justifyContent: 'flex-end', marginTop: scale(160)}}>
           <Button
             title={'Confirm Payment'}
             onPress={() => {
-              // console.log(CVV, name, cardNumber, expiredDate);
               navigation.navigate(Routes.Home);
             }}
           />
