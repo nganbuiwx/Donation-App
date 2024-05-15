@@ -27,6 +27,9 @@ interface Color {
   RedCancel: string;
   Blue: string;
   BlueLight: string;
+  GreenLight: string;
+  YellowLight: string;
+  PinkLight: string;
 }
 
 const Colors: Color = {
@@ -58,18 +61,9 @@ const Colors: Color = {
   RedCancel: '#FF4D4F',
   Blue: '#2A289D',
   BlueLight: '#3751ff',
+  GreenLight: '#a6e4d0',
+  YellowLight: '#fdeb93',
+  PinkLight: '#e9bcbe',
 };
-
-export const colorsRandom = [
-  '#cb428a',
-  '#ae7196',
-  '#FFBF00',
-  '#8dbcf9',
-  '#733518',
-  '#fd5917',
-  '#9FE2BF',
-  '#fa1bfc',
-  '#CCCCFF',
-];
 
 export default Colors;
