@@ -4,12 +4,21 @@ User: Testing222@gmail.com
 
 Pass: 12345.
 
-### Account payment
+### Test Cards
 
-1. Success case
+1. Success 
 
-Card Number: 4242 4242 4242 4242 
+Card Number: 
+```4242424242424242``` 
 
-2. Failure case 
+2. Decline
 
-Card Number: 4000 0000 0000 9995
+Card Number: 
+
+- ```4000000000009995```
+  
+- ```4000000000000002```
+
+3. Authentication
+
+Card Number: ```4000000000003220```
