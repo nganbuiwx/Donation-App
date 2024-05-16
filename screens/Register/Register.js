@@ -1,13 +1,11 @@
 import React, {useState} from 'react';
-import {View, SafeAreaView, ScrollView, Text} from 'react-native';
+import {View, SafeAreaView, ScrollView, Text, Image} from 'react-native';
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
-import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
 import BackButton from '../../components/BackButton/BackButton';
 import {createUser} from '../../api/user';
-import {scale} from 'react-native-size-matters';
 
 const Register = ({navigation}) => {
   const [name, setName] = useState('');
@@ -25,7 +23,11 @@ const Register = ({navigation}) => {
           <BackButton onPress={() => navigation.goBack()} />
         </View>
         <View style={style.registerContainer}>
-          <Text style={globalStyle.header}>Hello and Welcome !</Text>
+          <Image
+            source={require('../../assets/images/logo.png')}
+            style={style.logo}
+          />
+          <Text style={globalStyle.header}>Register Account!</Text>
           <Input
             title={'First & Last Name'}
             isSecureTextEntry={false}
