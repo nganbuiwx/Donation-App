@@ -4,6 +4,7 @@ import {
   scaleFontSize,
   verticalScale,
 } from '../../assets/styles/scaling';
+import {scale} from 'react-native-size-matters';
 
 const style = StyleSheet.create({
   detailContainer: {
@@ -33,6 +34,7 @@ const style = StyleSheet.create({
   },
   donateButton: {
     marginHorizontal: horizontalScale(20),
+    marginBottom: scale(24),
   },
 });
 

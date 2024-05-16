@@ -19,7 +19,10 @@ const globalStyle = StyleSheet.create({
     fontSize: FONTSIZE.size_16,
     color: Colors.GreyText,
   },
-  BackButton: {marginLeft: scale(10)},
+  BackButton: {
+    marginLeft: scale(10),
+    marginTop: scale(10),
+  },
 });
 
 export default globalStyle;

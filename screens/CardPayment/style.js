@@ -7,6 +7,7 @@ const style = StyleSheet.create({
   },
   paymentButton: {
     marginHorizontal: scale(24),
+    marginBottom: scale(24),
   },
   donationAmountDescription: {
     marginTop: verticalScale(12),
