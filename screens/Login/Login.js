@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, SafeAreaView, ScrollView, Text} from 'react-native';
+import {View, SafeAreaView, ScrollView, Text, Image} from 'react-native';
 import globalStyle from '../../assets/styles/globalStyle';
 import style from './style';
 import Button from '../../components/Button/Button';
@@ -34,6 +34,10 @@ const Login = ({navigation, route}) => {
         showsVerticalScrollIndicator={false}
         automaticallyAdjustKeyboardInsets>
         <View style={style.loginContainer}>
+          <Image
+            source={require('../../assets/images/logo.png')}
+            style={style.logo}
+          />
           <Text style={globalStyle.header}>Welcome Back!</Text>
           <Text style={globalStyle.descriptionText}>
             Sign in to your account.

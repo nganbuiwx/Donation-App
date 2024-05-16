@@ -1,12 +1,12 @@
 import {StyleSheet} from 'react-native';
-import {scale, verticalScale} from 'react-native-size-matters';
+import {scale} from 'react-native-size-matters';
 import {FONTSIZE} from '../../utils/theme';
 import Colors from '../../utils/color';
 
 const style = StyleSheet.create({
   loginContainer: {
     margin: scale(20),
-    marginTop: verticalScale(150),
+    flex: 1,
   },
   errorMessage: {
     fontFamily: 'Inter',
@@ -14,6 +14,11 @@ const style = StyleSheet.create({
     color: Colors.Red,
     marginTop: scale(12),
     marginBottom: scale(12),
+  },
+  logo: {
+    width: scale(100),
+    height: scale(100),
+    marginBottom: scale(30),
   },
 });
 
