@@ -14,6 +14,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1B3430D4CD704F1D98560308 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A6FB97D07BF4E2C8195D8A1 /* Inter-SemiBold.ttf */; };
+		4F734440281A42D3A9155D6A /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607D46FBB40545F9B8C014F9 /* BootSplash.storyboard */; };
 		632A0A3AFBBEACB27C914B70 /* Pods_DonationApp_DonationAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A869574B514D480C3B6D372E /* Pods_DonationApp_DonationAppTests.framework */; };
 		6607B41FAFDA4BF0BA959850 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 559394392F3D4A9C9B933202 /* Inter-Light.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -54,6 +55,7 @@
 		559394392F3D4A9C9B933202 /* Inter-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Light.ttf"; path = "../assets/fonts/Inter-Light.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-DonationApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DonationApp.release.xcconfig"; path = "Target Support Files/Pods-DonationApp/Pods-DonationApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-DonationApp-DonationAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DonationApp-DonationAppTests.debug.xcconfig"; path = "Target Support Files/Pods-DonationApp-DonationAppTests/Pods-DonationApp-DonationAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		607D46FBB40545F9B8C014F9 /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = DonationApp/BootSplash.storyboard; sourceTree = "<group>"; };
 		652328020DD348C79728EB41 /* Inter-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Black.ttf"; path = "../assets/fonts/Inter-Black.ttf"; sourceTree = "<group>"; };
 		6CEA09A06AC04BC2B53C1BF8 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-ExtraLight.ttf"; path = "../assets/fonts/Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
 		6FCDC4D5878140DABBEDA9F4 /* Inter-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Thin.ttf"; path = "../assets/fonts/Inter-Thin.ttf"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				607D46FBB40545F9B8C014F9 /* BootSplash.storyboard */,
 			);
 			name = DonationApp;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				1B3430D4CD704F1D98560308 /* Inter-SemiBold.ttf in Resources */,
 				BD9E1A6E06954859A1781BB2 /* Inter-Thin.ttf in Resources */,
 				120B0A2C3F9B487ABD28DB94 /* helper.js in Resources */,
+				4F734440281A42D3A9155D6A /* BootSplash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
