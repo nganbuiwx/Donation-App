@@ -24,7 +24,7 @@ const style = StyleSheet.create({
     fontSize: scaleFontSize(14),
     fontWeight: '400',
     lineHeight: scaleFontSize(29),
-    letterSpacing: 0.28,
+    letterSpacing: 0.2,
     marginTop: verticalScale(7),
     marginHorizontal: horizontalScale(7),
     marginBottom: verticalScale(10),

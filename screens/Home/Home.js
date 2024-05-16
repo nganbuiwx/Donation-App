@@ -68,9 +68,7 @@ const Home = ({navigation}) => {
           <View style={style.topHeaderContainer}>
             <View style={style.topHeaderContent}>
               <Text style={globalStyle.header}>Hello, </Text>
-              <Text style={{fontSize: FONTSIZE.size_20, fontWeight: '800'}}>
-                {user.displayName + ' 👋'}
-              </Text>
+              <Text style={globalStyle.title}>{user.displayName + ' 👋'}</Text>
             </View>
             <View>
               <Image source={require('../../assets/images/user.png')} />
@@ -79,7 +77,7 @@ const Home = ({navigation}) => {
                   dispatch(resetToInitialState());
                   await logOut();
                 }}>
-                <Header type={3} title={'Logout'} color={'#156CF7'} />
+                <Header type={3} title={'Logout'} color={'gray'} />
               </Pressable>
             </View>
             {/* <Image source={user.profileImage} /> */}

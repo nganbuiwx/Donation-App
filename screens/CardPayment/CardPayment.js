@@ -68,7 +68,7 @@ const CardPayment = ({navigation}) => {
         <View>
           <Text style={globalStyle.header}>My Card Payment</Text>
           <Text style={style.donationAmountDescription}>
-            You are about to donate {donationItemInformation.price}
+            You are about to donate ${donationItemInformation.price}
           </Text>
           <StripeProvider publishableKey={STRIPE_PUBLISHABLE_KEY}>
             <CardForm

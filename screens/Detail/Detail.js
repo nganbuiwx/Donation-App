@@ -1,7 +1,6 @@
 import React from 'react';
-import {View, SafeAreaView, Image, Text, TouchableOpacity} from 'react-native';
+import {View, SafeAreaView, Image, Text} from 'react-native';
 import style from './style';
-import Header from '../../components/Header/Header';
 import Button from '../../components/Button/Button';
 import Badge from '../../components/Badge/Badge';
 import {Routes} from '../../navigation/Routes';
@@ -31,7 +30,10 @@ const Detail = ({navigation, route}) => {
           <Badge title={categoryInformation.name} />
 
           <View style={style.contentContainer}>
-            <Header title={donationItemInformation.name} type={1} />
+            <Text style={globalStyle.header}>
+              {donationItemInformation.name}
+            </Text>
+
             <Text style={style.description}>
               {donationItemInformation.description}
             </Text>
