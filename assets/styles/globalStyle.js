@@ -23,6 +23,7 @@ const globalStyle = StyleSheet.create({
     marginLeft: scale(10),
     marginTop: scale(10),
   },
+  title: {fontSize: FONTSIZE.size_20, fontWeight: '800'},
 });
 
 export default globalStyle;
