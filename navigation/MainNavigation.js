@@ -8,6 +8,7 @@ import Detail from '../screens/Detail/Detail';
 import Onboarding from '../screens/Onboarding/Onboarding';
 import {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Loading from '../screens/Loading/Loading';
 // import {createMaterialBottomTabNavigator} from 'react-native-paper/react-navigation';
 
 // const Tab = createMaterialBottomTabNavigator();
@@ -47,6 +48,7 @@ export const NonAuthenticated = () => {
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name={Routes.Login} component={Login} />
         <Stack.Screen name={Routes.Register} component={Register} />
+        <Stack.Screen name={Routes.Loading} component={Loading} />
       </Stack.Navigator>
     );
   } else {
@@ -54,6 +56,7 @@ export const NonAuthenticated = () => {
       <Stack.Navigator screenOptions={{header: () => null, headerShown: false}}>
         <Stack.Screen name={Routes.Login} component={Login} />
         <Stack.Screen name={Routes.Register} component={Register} />
+        <Stack.Screen name={Routes.Loading} component={Loading} />
       </Stack.Navigator>
     );
   }
@@ -64,6 +67,7 @@ export const Authenticated = () => {
     <Stack.Navigator
       initialRouteName={Routes.Home}
       screenOptions={{header: () => null, headerShown: false}}>
+      {/* <Stack.Screen name={Routes.Loading} component={Loading} /> */}
       <Stack.Screen name={Routes.Home} component={Home} />
       <Stack.Screen name={Routes.Detail} component={Detail} />
       <Stack.Screen name={Routes.CardPayment} component={CardPayment} />

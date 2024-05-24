@@ -26,7 +26,27 @@ const Login = ({navigation, route}) => {
     }
   }, [route.params]);
 
-  // dispatch(resetToInitialState());
+  const handleLogin = async () => {
+    navigation.navigate(Routes.Loading); // Navigate to LoadingScreen
+
+    let user;
+    try {
+      user = await loginUser(email, password);
+    } catch (e) {
+      setError('Network error, please try again later');
+      navigation.goBack(); // Navigate back to the login screen
+      return;
+    }
+
+    if (!user.status) {
+      setError(user.error);
+      navigation.goBack(); // Navigate back to the login screen
+    } else {
+      setError('');
+      dispatch(logIn(user.data));
+      navigation.navigate(Routes.Home);
+    }
+  };
 
   return (
     <SafeAreaView style={[globalStyle.backgroundWhite, globalStyle.flex]}>
@@ -64,16 +84,7 @@ const Login = ({navigation, route}) => {
           <Button
             title={'Login'}
             isDisabled={email.length < 5 || password.length < 6}
-            onPress={async () => {
-              let user = await loginUser(email, password);
-              if (!user.status) {
-                setError(user.error);
-              } else {
-                setError('');
-                dispatch(logIn(user.data));
-                navigation.navigate(Routes.Home);
-              }
-            }}
+            onPress={handleLogin}
           />
           <View style={{alignItems: 'center', marginTop: scale(20)}}>
             <TouchableOpacity

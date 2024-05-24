@@ -4,4 +4,5 @@ export const Routes = {
   Home: 'Home',
   Detail: 'Detail',
   CardPayment: 'CardPayment',
+  Loading: 'Loading',
 };
