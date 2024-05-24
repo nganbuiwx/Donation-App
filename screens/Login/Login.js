@@ -40,7 +40,6 @@ const Login = ({navigation, route}) => {
 
     if (!user.status) {
       setError(user.error);
-      navigation.goBack(); // Navigate back to the login screen
     } else {
       setError('');
       dispatch(logIn(user.data));

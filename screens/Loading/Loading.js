@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import LottieView from 'lottie-react-native';
 import {useNavigation} from '@react-navigation/native';
+import {scale} from 'react-native-size-matters';
 
 const Loading = () => {
   const navigation = useNavigation();
@@ -18,7 +19,7 @@ const Loading = () => {
   return (
     <View style={styles.container}>
       <LottieView
-        source={require('../../assets/images/sleeping-cat.json')}
+        source={require('../../assets/images/loadingAnimated.json')}
         style={styles.animation}
         autoPlay
         loop
@@ -32,10 +33,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'white',
   },
   animation: {
-    width: 200,
-    height: 200,
+    width: scale(300),
+    height: scale(250),
   },
 });
 

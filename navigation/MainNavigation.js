@@ -67,10 +67,10 @@ export const Authenticated = () => {
     <Stack.Navigator
       initialRouteName={Routes.Home}
       screenOptions={{header: () => null, headerShown: false}}>
-      {/* <Stack.Screen name={Routes.Loading} component={Loading} /> */}
       <Stack.Screen name={Routes.Home} component={Home} />
       <Stack.Screen name={Routes.Detail} component={Detail} />
       <Stack.Screen name={Routes.CardPayment} component={CardPayment} />
+      {/* <Stack.Screen name={Routes.Loading} component={Loading} /> */}
     </Stack.Navigator>
   );
 };
