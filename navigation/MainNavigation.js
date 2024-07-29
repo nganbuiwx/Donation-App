@@ -7,6 +7,7 @@ import CardPayment from '../screens/CardPayment/CardPayment';
 import Detail from '../screens/Detail/Detail';
 import Onboarding from '../screens/Onboarding/Onboarding';
 import {useEffect, useState} from 'react';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Loading from '../screens/Loading/Loading';
 // import {createMaterialBottomTabNavigator} from 'react-native-paper/react-navigation';
